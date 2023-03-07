@@ -1,3 +1,8 @@
+/* Root variables */
+:root {
+  --blue_color: green;
+}
+
 /* Universal Styles */
 * {
   margin: 0;
@@ -16,7 +21,7 @@ body {
 
 /*NavBar*/
 .navbar {
-  background-color: royalblue;
+  background-color: var(--blue_color);
   padding: 20px;
   color: white;
   display: flex;
@@ -180,4 +185,95 @@ footer {
 .emailInput {
   display: flex;
   flex-direction: column;
+}
+
+/* Animations */
+@keyframes make_large {
+  0% {
+    font-size: 2px;
+    color: black;
+  }
+  25% {
+    color: red;
+  }
+  50% {
+    color: green;
+  }
+  100% {
+    font-size: 40px;
+    color: royalblue;
+  }
+}
+.header h1 {
+  animation: make_large 3s ease;
+}
+
+/* Slide in top animation */
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.header {
+  animation: slide-in-top 2s ease;
+}
+
+/* Animation ROtate */
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.header img {
+  animation: rotate-center 2s ease;
+  animation-delay: 5s;
+}
+
+/* Media Queries */
+/* for Phone */
+@media all and (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar ul {
+    flex-direction: column;
+  }
+  .navbar ul li {
+    margin-bottom: 10px;
+  }
+  .header img {
+    width: 70%;
+    height: 70%;
+  }
+  .header h1 {
+    font-size: 20px;
+  }
+  .allFeatures,
+  .payments ul,
+  .inputs {
+    flex-direction: column;
+  }
+}
+
+/* for Tablet*/
+@media all and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin-left: 20px;
+  }
 }
